@@ -24,6 +24,7 @@ class Heart:
 		for frame in range(generate_frame):
 			self.calc(frame)
 	
+	
 	def build(self, number):
 		for _ in range(number):
 			t = random.uniform(0, 2 * pi)
@@ -39,12 +40,14 @@ class Heart:
 			x, y = scatter_inside(x, y, 0.17)
 			self._center_diffusion_points.add((x, y))
 	
+	
 	@staticmethod
 	def calc_position(x, y, ratio):
 		force = 1 / (((x - heartx) ** 2 + (y - hearty) ** 2) ** 0.520)  # 魔法参数
 		dx = ratio * force * (x - heartx) + random.randint(-1, 1)
 		dy = ratio * force * (y - hearty) + random.randint(-1, 1)
 		return x - dx, y - dy
+	
 	
 	def calc(self, generate_frame):
 		ratio = 10 * curve(generate_frame / 10 * pi)  # 圆滑的周期的缩放比例
@@ -75,6 +78,7 @@ class Heart:
 			size = random.randint(1, 2)
 			all_points.append((x, y, size))
 		self.all_points[generate_frame] = all_points
+	
 	
 	def render(self, render_canvas, render_frame):
 		for x, y, size in self.all_points[render_frame % self.generate_frame]:
