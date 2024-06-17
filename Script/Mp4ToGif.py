@@ -16,13 +16,19 @@ def Mp4ToGif(inputPath: str, outputPath: str,
 
 
 """ tutorial
-import Mp4ToGif
+from Script import Mp4ToGif
 
 def _run():
 	inputPath = "D:\Huawei Share\Screenshot\hashQtShow.mp4"
 	outputPath = "D:\desktop\hash.gif"
 	t_start = (0, 3)
 	t_end = (0, 18)
+	''' 时间参数解释
+	 - in seconds (15.35)
+	 - in (min, sec)
+	 - in (hour, min, sec)
+	 - a string: '01:03:05.35'
+	'''
 	Mp4ToGif.Mp4ToGif(inputPath, outputPath, t_start, t_end)
 
 
